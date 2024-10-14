@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './Detalles.css'; 
+import styles from './Detalles.module.css'; 
 
 const Detalles = () => {
   const { id } = useParams(); // Obtener el ID del deporte desde la URL
@@ -31,16 +31,16 @@ const Detalles = () => {
   }
 
   return (
-    <div className="container">
-      <h1 className="title">{sport.title}</h1>
-      <div className="box">
-        <h3 className="subtitle">Detalles del Deporte</h3>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{sport.title}</h1>
+      <div className={styles.box}>
+        <h3 className={styles.subtitle}>Detalles del Deporte</h3>
         <p><strong>Descripción:</strong> {sport.description}</p>
         <p><strong>Jugadores:</strong> {sport.players}</p>
         <p><strong>Categoría:</strong> {sport.categories}</p>
       </div>
       <Link to="/home">
-        <button className="button is-link">
+        <button className={`button is-link ${styles.button}`}>
           Volver a la lista de deportes
         </button>
       </Link>

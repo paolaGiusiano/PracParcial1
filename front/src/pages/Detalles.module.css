@@ -1,0 +1,86 @@
+.container {
+    margin: 20px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button {
+    margin-top: 20px;
+  }
+  
+  
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .box {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .box {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .container {
+    margin: 10px;
+  }
+
+  .button {
+    width: 100%; 
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .box {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    margin: 5px;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .box {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}

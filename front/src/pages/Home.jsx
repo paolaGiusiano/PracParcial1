@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import styles from './Home.module.css'; 
+import Card from '../components/Card';
 
 const Home = () => {
   const [sports, setSports] = useState([]);
   const [error, setError] = useState(null);
 
-  // Función para obtener la lista de deportes
   const fetchSports = async () => {
     try {
       const response = await fetch('http://localhost:3000/api/games');
@@ -39,22 +39,18 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="title">Juegos Olímpicos de París 2024</h1>
+    <div className={styles.container}> 
+      <h1 className={styles.title}>Juegos Olímpicos de París 2024</h1> 
       <Link to="/add-sport">
-        <button className="button is-primary">Agregar juego</button>
+        <div className={styles.buttonWrapper}>
+          <button className={`button is-primary ${styles.primaryButton}`}>
+            Agregar juego
+          </button>
+        </div>
       </Link>
-      <div className="columns is-multiline">
+      <div className={styles.columnsMultiline}> 
         {sports.map((sport) => (
-          <div key={sport.id} className="column is-one-third">
-            <div className="box">
-              <h3 className="subtitle">{sport.title}</h3>
-              <div className="buttons is-centered">
-                <Link to={`/sports/${sport.id}`} className="button is-link is-outlined">Detalles</Link>
-                <button onClick={() => handleDelete(sport.id)} className="button is-danger is-outlined">Borrar</button>
-              </div>
-            </div>
-          </div>
+          <Card key={sport.id} sport={sport} onDelete={handleDelete} />
         ))}
       </div>
     </div>

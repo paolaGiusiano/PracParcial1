@@ -1,0 +1,49 @@
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end; 
+  padding: 10px; 
+}
+
+.primaryButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: max-content;
+}
+
+.columnsMultiline {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos responsivos aunque se esta usando Bulma */
+@media (max-width: 1024px) {
+  .columnOneThird {
+    flex-basis: 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .columnOneThird {
+    flex-basis: 100%; 
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .primaryButton {
+    width: 100%; 
+    text-align: center;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import InputField from '../components/Input'; 
 
 const AddSport = () => {
   const [name, setName] = useState('');
@@ -37,18 +38,13 @@ const AddSport = () => {
       <h1 className="title">Agregar Nuevo Deporte</h1>
       {error && <p className="has-text-danger">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="field">
-          <label className="label">Nombre</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-        </div>
+        <InputField
+          label="Nombre"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
         <div className="field">
           <label className="label">Descripción</label>
           <div className="control">
@@ -60,30 +56,20 @@ const AddSport = () => {
             ></textarea>
           </div>
         </div>
-        <div className="field">
-          <label className="label">Cantidad de Participantes</label>
-          <div className="control">
-            <input
-              className="input"
-              type="number"
-              value={players}
-              onChange={(e) => setParticipants(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Categorías</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              value={categories}
-              onChange={(e) => setCategories(e.target.value)}
-              required
-            />
-          </div>
-        </div>
+        <InputField
+          label="Cantidad de Participantes"
+          type="number"
+          value={players}
+          onChange={(e) => setParticipants(e.target.value)}
+          required
+        />
+        <InputField
+          label="Categorías"
+          type="text"
+          value={categories}
+          onChange={(e) => setCategories(e.target.value)}
+          required
+        />
         <div className="control">
           <button type="submit" className="button is-primary">Agregar Deporte</button>
         </div>
