@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AddSport = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [participants, setParticipants] = useState('');
+  const [players, setParticipants] = useState('');
   const [categories, setCategories] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newSport = { title: name, description, participants, categories };
+    const newSport = { title: name, description, players, categories };
 
-    
     try {
-      await axios.post('http://localhost:3000/api/games', newSport);
+      const response = await fetch('http://localhost:3000/api/games', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newSport),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al agregar el deporte');
+      }
+
       navigate('/home'); 
     } catch (err) {
       setError('Error al agregar el deporte');
@@ -57,7 +66,7 @@ const AddSport = () => {
             <input
               className="input"
               type="number"
-              value={participants}
+              value={players}
               onChange={(e) => setParticipants(e.target.value)}
               required
             />

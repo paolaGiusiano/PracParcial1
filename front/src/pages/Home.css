@@ -1,43 +1,59 @@
-.container {
-    text-align: center;
-  }
-  
-  .title {
+.title {
     font-size: 2rem;
     margin-bottom: 1rem;
-  }
-  
-  .has-text-danger {
-    color: red;
   }
   
   .button.is-primary {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 1065px; 
+    margin-left: auto; 
+    display: block; 
+    width: max-content; 
   }
   
   .columns.is-multiline {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: center; 
-  }  
-
+  }
+  
   .column.is-one-third {
-    padding: 1rem; 
+    flex-basis: 30%;
+    max-width: 30%;
+    padding: 15px;
   }
   
   .box {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .subtitle {
-    font-size: 1.5rem;
+    text-align: center;
   }
   
   .buttons.is-centered {
-    justify-content: center; /* Centrar los botones */
+    justify-content: center;
+    margin-top: 10px;
   }
   
+
+  /* estilos responsivos aunque se esta usando Bulma*/
+@media (max-width: 768px) {
+    .column.is-one-third {
+      flex-basis: 45%;
+      max-width: 45%;
+    }
+
+  }
+  
+  @media (max-width: 480px) {
+    .column.is-one-third {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+}

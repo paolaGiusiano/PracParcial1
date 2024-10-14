@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import './Detalles.css'; 
 
@@ -11,10 +10,12 @@ const Detalles = () => {
   // Función para obtener los detalles del deporte
   const fetchSportDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/games/${id}`);
-
-        setSport(response.data[0]); 
-   
+      const response = await fetch(`http://localhost:3000/api/games/${id}`);
+      if (!response.ok) {
+        throw new Error('Error al cargar los detalles del deporte');
+      }
+      const data = await response.json();
+      setSport(data[0]); 
     } catch (err) {
       setError('Error al cargar los detalles del deporte');
       console.error(err); 
@@ -25,8 +26,6 @@ const Detalles = () => {
     fetchSportDetails();
   }, [id]);
 
- 
-
   if (!sport) {
     return <p>Cargando...</p>;
   }
@@ -36,9 +35,9 @@ const Detalles = () => {
       <h1 className="title">{sport.title}</h1>
       <div className="box">
         <h3 className="subtitle">Detalles del Deporte</h3>
-        <p><strong>Descripción:</strong> {sport.description }</p>
-        <p><strong>Jugadores:</strong> {sport.players }</p>
-        <p><strong>Categorías:</strong> {sport.categories }</p>
+        <p><strong>Descripción:</strong> {sport.description}</p>
+        <p><strong>Jugadores:</strong> {sport.players}</p>
+        <p><strong>Categoría:</strong> {sport.categories}</p>
       </div>
       <Link to="/home">
         <button className="button is-link">

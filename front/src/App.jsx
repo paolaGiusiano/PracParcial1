@@ -5,7 +5,7 @@ import './App.css'
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home  from './pages/Home'
 import Detalles from './pages/Detalles';
-import AddSport from './components/AddSport';
+import AddSport from './pages/AddSport';
 
 
 function App() {
